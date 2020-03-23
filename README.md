@@ -12,7 +12,7 @@ RUN socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<host>:<port>
 ```
 #### Join container network namespace for troubleshooting
 ```
-docker run -it --net container:<has> nicolaka/netshoot
+docker run -it --net container:<hash> nicolaka/netshoot
 ```
 
 ## Kafka
