@@ -1,4 +1,9 @@
 ## AWS
+#### Clone Route53 Zone and modify it for reupload
+```
+:; HOSTED_ZONE_ID
+:; aws route53 list-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID | jq '. | del(.ResourceRecordSets[] | select(.Type == "NS" or .Type == "SOA")) | .ResourceRecordSets | {"Changes": [{"Action": "CREATE", "ResourceRecordSet": .[]}]}'
+```
 #### Remove / Update EC2 Security Groups
 You can alter this command to add new groups by just appending them to the end
 ```
